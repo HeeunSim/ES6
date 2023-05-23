@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 기타등등</title>
+</head>
+<body>
+    
+    <h1>기타 등등</h1>
+    <textarea cols="150" rows="60">
+
+        !! 최근엔 Promise보다 Fetch가 더 많이 사용됨
+
+        1. 프로미스(Promise)
+            - 자바스크립트에서 비동기 처리를 기존에는 콜백함수를 사용한 콜백 패턴을 사용했다. 
+                * 콜백함수 ? 파라미터로 함수를 전달하는 함수. 파라미터로 함수를 전달받아서 함수의 내부에서 실행하는 함수.
+                * 콜백패턴 ? 파라미터에 인자로 전달되는 함수 뒤에 ()를 안 붙이고 전달해서 실행되는 타이밍을 콜백함수 내부로 옮기는 것, 그러한 패턴.
+
+                - 그 결과는 콜백지옥이라는 것을 발생시키게 되었다.
+                    step1(function(value1){
+                        step2(function(value2){
+                            step3(function(value3){
+                                step4(function(value4){
+                                    step5(function(value5){
+                                        step6(function(value6){
+                                            // Do Sth. with value6
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    })
+
+                - 이를 해결하기 위해서 프로미스가 도입되었고, 프로미스 후속처리 메소드를 이용해서 에러 처리를 효과적으로 할 수 있게 되었다.
+                - 결론 : 프로미스는 자바스크립트 비동기 처리에 사용되는 객체.
+                    * 비동기 처리 ? 특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트 특성
+                - 프로미스의 3가지 상태
+                    * Pending(대기)     :   비동기 처리 로직이 아직 완료되지 않은 상태
+                    * Fulfillds(이행)   :   비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+                    * Rejected(실패)    :   비동기 처리가 실패하거나 오류가 발생한 상태
+
+                2. 클래스(Class)
+                    - 자바스크립트는 프로토타입 기반의 객체 지향 언어이다.
+                    - 클래스 기반의 객체 지향 프로그래밍도 할 수 있도록 Class 키워드를 도입하였다.
+                    - 자바스크립트에서 클래스는 내부적으로 프로토타입을 이요해서 만들어졌다.
+                    - 클래스는 사실 특별한 함수라고 이해해도 좋다.
+                    - 클래스는 호이스팅이 let이나 const처럼 동작한다.
+
+                    class Car{
+                        constructor(make, color){
+                            this.make = make;
+                            this.color = color;
+                        }
+                    }
+                    let hyundai = new Car("JiHun", "Navy")
+                    car.prototype.summary = function () {
+                        console.log(`이 자동차는 ${this.make}이 만들었고, 색상은 ${this.color}입니다.`)
+                    }
+                    당연히 this의 주체가 다르므로... 화살표 함수를 사용할 수 없다!
+
+                3. 모듈(Module)
+                    - 모듈이랑 재사용하기 위한 코드의 조각을 뜻한다. 
+                    - 세부사항은 캡슐화 시키고, API부분만 외부에 노출하는 코드이다.
+                    - type에서 module을 추가시키고 확장자를 mjs로 변경해서 사용한다.
+                    - 모듈은 모듈 스코프를 가지고, import와 export 키워드를 이용해서 사용한다.
+                        <script type="module" src="lib.mjs"></script>
+
+                4. 배열 함수 
+                    - forEach   :   반환값이 없고, for문 처럼 동작할 수 있는 함수
+                    ! - map       :   반환값을 배열에 담아 반환하는 함수
+                    ! - filter    :   조건에 충족하는 아이템들만 배열에 담아 반환하는 함수
+                    - some      :   조건에 충족하는 아이템이 하나라도 있다면 ture, 아니면 flase 반환하는 함수
+                    - every     :   모든 배열에 아이템이 조건을 충족한다면 true, 아니면 false 반환하는 함수
+                    - find      :   조건에 충족하는 아이템 하나만 반환(여러개라면 첫번째 아이템만 반환)하는 함수
+                    - findIndex :   조건에 충족하는 아이템의 인덱스값 반환(여러개라면 첫번째 아이템의 인덱스값만 반환)하는 함수
+
+                    - 반복할 때 사용 for 루프
+                    - 기본적으로 함수를 인자로 받아 사용 된다. 반환값이 된다. 유일하게 forEach만 반환값이 없다.
+    </textarea>
+</body>
+</html>
